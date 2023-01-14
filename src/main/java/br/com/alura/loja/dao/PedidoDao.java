@@ -39,4 +39,14 @@ public class PedidoDao {
 		return em.createQuery(jpql, RelatorioDeVendasVo.class )
 				.getResultList();
 	}
+
+	/*
+	* Esse método é uma busca planejada. Onde apenas nessa consulta, ele tras o cliente com Eager
+	* mesmo o cliente estando marcado como Lazy.
+	* */
+	public Pedido buscarPedidoComCliente(Long id){
+		return em.createQuery("SELECT p FROM Pedido p JOIN FETCH p.cliente WHERE p.id = :id", Pedido.class)
+				.setParameter("id", id)
+				.getSingleResult();
+	}
 }
