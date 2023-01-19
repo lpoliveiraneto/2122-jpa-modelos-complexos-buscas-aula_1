@@ -21,7 +21,7 @@ public class PerformaceConsulta {
 		Pedido pedido = pedidoDao.buscarPedidoComCliente(1L);
 		em.close();
 		System.out.println();
-		System.out.println(pedido.getCliente().getNome());
+		System.out.println(pedido.getCliente().getDadosPessoais().getNome());
 	}
 	
 	private static void popularBancoDeDados() {
