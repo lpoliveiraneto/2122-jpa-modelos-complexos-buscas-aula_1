@@ -9,6 +9,11 @@ import javax.persistence.*;
 @Table(name = "produtos")
 @NamedQuery(name = "Produto.produtosPorCategoria",
 query = "SELECT p FROM Produto p WHERE p.categoria.nome = :nome")
+/*Utilizando Herança com apenas  uma única tabela*/
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
+/*Utilizando Herança com várias tabela*/
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Produto {
 
 	@Id
